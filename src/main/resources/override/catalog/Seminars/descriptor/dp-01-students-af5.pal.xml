@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<catalog xmlns="http://www.intertrust.ru/schema/palette/cat-ui">
+  <custom-descriptor ident="SeminarsDocs" view="Seminars_(pp_cmj_all)" id="dp-01-seminars-af5" name="Семинары" style="default">
+    <builder name="ru.intertrust.cm_sochi.srv.uicollections.UiBuilder"/>
+    <table>
+      <columns>
+        <column-ref ref="self"/>
+        <column-ref ref="nameSem" filter="true" sort-desc="true" sort-asc="true"/>
+        <column-ref ref="veduschiy" filter="true" sort-desc="true" sort-asc="true"/>
+        <column-ref ref="participants" filter="true" sort-desc="true" sort-asc="true"/>
+        <column-ref ref="place" filter="true" sort-desc="true" sort-asc="true"/>
+        <column-ref ref="dataivremya" filter="true" sort-desc="true" sort-asc="true"/>
+        <column-ref ref="materials" filter="true" sort-desc="true" sort-asc="true"/>
+      </columns>
+    </table>
+    <custom-actions schema-ref="RkkResourceSeminars"/>
+  </custom-descriptor>
+  <column name="nameSem" extends="string" subject="${nameSem:Название}"/>
+  <column name="veduschiy" extends="string" subject="${veduschiy:Ведущий}"/>
+  <column name="participants" extends="string" subject="${participants:Участники}"/>
+  <column name="place" extends="string" subject="${place:Место проведения}"/>
+  <column name="dataivremya" extends="datetime" subject="${dataivremya:Дата/Время проведения}"/>
+  <column name="materials" extends="string" subject="${materials:Материалы семинара}"/>
+</catalog>
