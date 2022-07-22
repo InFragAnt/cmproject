@@ -1,0 +1,162 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui xmlns="http://www.intertrust.ru/schema/palette/tn-ui">
+  <directories>
+    <by-key  key="Место проведения" id="Spot" name="${Spot:Место проведения}" />
+  </directories>
+  <form schema-ref="RkkResourceSeminars" id="RkkResourceSeminarsForm" projection="default" showtabs="true">
+    <properties>
+      <hide condition-union="AND">
+        <negative-condition-ref ref="edit" />
+        <negative-condition-ref ref="read" />
+      </hide>
+    </properties>
+    <component>
+      <section id="Content" name="${ui.form.RkkResourceInternalForm.section.Content.name:Содержание}">
+        <properties>
+          <read-only condition-union="AND">
+            <negative-condition-ref ref="Signed_RKK"/>
+            <negative-condition-ref ref="OnReview_RKK"/>
+            <negative-condition-ref ref="onSigning_RKK"/>
+          </read-only>
+        </properties>
+      </section>
+      <section id="Header">
+        <component>
+          <section group="true" id="row1">
+            <component>
+              <field attribute-ref="showIdent">
+                <properties>
+                  <read-only condition-union="AND">
+                    <condition>true</condition>
+                  </read-only>
+                </properties>
+                <appearance importance="normal" align="left">
+                  <label-style field-unit="symbol" field-width="15" />
+                  <alt-appearancies>
+                    <alt-appearance>
+                      <appearance-ref ref="css_headerElementWithIcon" />
+                      <enable condition-union="AND">
+                        <condition>true</condition>
+                      </enable>
+                    </alt-appearance>
+                  </alt-appearancies>
+                </appearance>
+              </field>
+            </component>
+            <appearance>
+              <alt-appearancies>
+                <alt-appearance>
+                  <appearance-ref ref="horizontalSection" />
+                  <enable condition-union="AND">
+                    <condition>true</condition>
+                  </enable>
+                </alt-appearance>
+              </alt-appearancies>
+            </appearance>
+          </section>
+          <section group="true" id="row2">
+            <component>
+              <field attribute-ref="$preparationStatusInfo">
+                <properties>
+                  <read-only condition-union="AND">
+                    <condition>true</condition>
+                  </read-only>
+                </properties>
+                <appearance importance="normal" align="right">
+                  <label-style field-unit="symbol" field-width="13" />
+                  <alt-appearancies>
+                    <alt-appearance>
+                      <appearance-ref ref="rightAlign" />
+                      <enable condition-union="AND">
+                        <condition>true</condition>
+                      </enable>
+                    </alt-appearance>
+                  </alt-appearancies>
+                </appearance>
+              </field>
+              <field attribute-ref="$approvStatusInfo">
+                <properties>
+                  <read-only condition-union="AND">
+                    <condition>true</condition>
+                  </read-only>
+                </properties>
+                <appearance importance="normal" align="right">
+                  <label-style field-unit="symbol" field-width="16" />
+                  <alt-appearancies>
+                    <alt-appearance>
+                      <appearance-ref ref="rightAlign" />
+                      <enable condition-union="AND">
+                        <condition>true</condition>
+                      </enable>
+                    </alt-appearance>
+                  </alt-appearancies>
+                </appearance>
+              </field>
+              <field attribute-ref="approveAddStateText">
+                <properties>
+                  <read-only condition-union="AND">
+                    <condition>true</condition>
+                  </read-only>
+                  <hide condition-union="AND">
+                    <negative-condition-ref ref="Actions_approveAddStateTextNotIsEmpty" />
+                  </hide>
+                </properties>
+                <appearance importance="normal" align="right" />
+              </field>
+              <field attribute-ref="$reviewStatusInfo">
+                <properties>
+                  <read-only condition-union="AND">
+                    <condition>true</condition>
+                  </read-only>
+                  <hide condition-union="AND">
+                    <negative-condition-ref ref="Registrated_RKK" />
+                  </hide>
+                </properties>
+                <appearance importance="normal" align="right">
+                  <label-style field-unit="symbol" field-width="15" />
+                  <alt-appearancies>
+                    <alt-appearance>
+                      <appearance-ref ref="rightAlign" />
+                      <enable condition-union="AND">
+                        <condition>true</condition>
+                      </enable>
+                    </alt-appearance>
+                  </alt-appearancies>
+                </appearance>
+              </field>
+            </component>
+            <appearance field-layout="horizontal" />
+          </section>
+
+        </component>
+      </section>
+      <section name="${ui.form.RkkResourceSeminarsForm.section.Attributes.name:Описание}" id="Attributes">
+        <component>
+          <field attribute-ref="nameSem" name="${ui.form.RkkResourceSeminarsForm.section.Attributes.field.nameSem.name:Название:}"/>
+          <field attribute-ref="veduschiy" name="${ui.form.RkkResourceSeminarsForm.section.Attributes.field.veduschiy.name:Ведущий:}">
+            <directories>
+              <directory-ref ref="CURR_HUMAN_HH"/>
+            </directories>
+          </field>
+          <field attribute-ref="participants" name="${ui.form.RkkResourceSeminarsForm.section.Attributes.field.participants.name:Участники:}">
+            <directories>
+              <directory-ref ref="CURR_HUMAN_HH"/>
+            </directories>
+          </field>
+          <field attribute-ref="place" name="${ui.form.RkkResourceSeminarsForm.section.Attributes.field.place.name:Место проведения:}">
+            <directories>
+              <directory-ref ref="Spot" />
+            </directories>
+          </field>
+          <field attribute-ref="dataivremya" name="${ui.form.RkkResourceSeminarsForm.section.Attributes.field.dataivremya.name:Дата/Время проведения:}"/>
+          <field attribute-ref="materials" name="${ui.form.RkkResourceSeminarsForm.Attributes.field.materials.name:Материалы семинара:}"/>
+        </component>
+      </section>
+    </component>
+    <appearance widget="tabs" />
+  </form>
+
+</ui>
+
+
+

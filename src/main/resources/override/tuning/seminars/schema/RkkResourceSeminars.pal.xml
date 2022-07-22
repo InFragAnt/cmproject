@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<schemas xmlns="http://www.intertrust.ru/schema/palette/tn-schema">
+  <schema extends="RkkResource" name="RkkResourceSeminars">
+
+    <string name="showIdent" temporal="true">
+      <calc-values>
+        <script event="open" lang="SPEL"><![CDATA['Семинар']]></script>
+      </calc-values>
+    </string>
+
+    <boolean name="$hideUnusedActions" temporal="true">
+      <meta>
+        <documentation>Управление видимостью системных кнопок</documentation>
+      </meta>
+      <calc-values>
+        <script event="open" lang="SPEL"><![CDATA[
+(link.?[rel=='http://intertrust.ru/cmj/relations#applyTemplateButton'].size()>0 ?
+link.remove(link.?[rel=='http://intertrust.ru/cmj/relations#applyTemplateButton'].get(0)) : true)]]></script>
+      </calc-values>
+    </boolean>
+    <string name="nameSem">
+      <storage-field name="nameSem" />
+    </string>
+    <actor name="veduschiy" required="true"/>
+    <actor name="participants" array="true"/>
+    <string name="place" required="true">
+      <storage-field name="place" />
+    </string>
+    <datetime name="dataivremya" required="true"/>
+    <string name="materials">
+      <storage-field name="materials"/>
+    </string>ьт
+  </schema>
+</schemas>

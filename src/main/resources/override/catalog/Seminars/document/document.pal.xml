@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<catalog xmlns="http://www.intertrust.ru/schema/palette/cat-ui">
+  <document name="${catalog.document.project.name:Семинар}" schema-ref="RkkResourceSeminars" object-ref="RKK_INTERNAL" general="true">
+    <module ident="SeminarsDocs"/>
+  </document>
+</catalog>
