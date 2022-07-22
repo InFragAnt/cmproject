@@ -127,7 +127,6 @@
             </component>
             <appearance field-layout="horizontal" />
           </section>
-
         </component>
       </section>
       <section name="${ui.form.RkkResourceSeminarsForm.section.Attributes.name:Описание}" id="Attributes">
@@ -155,7 +154,6 @@
     </component>
     <appearance widget="tabs" />
   </form>
-
 </ui>
 
 
